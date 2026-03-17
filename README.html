@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay safe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background: #24292e;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 60px);
+            border: none;
+        }
+        input {
+            width: 70%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 8px 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>GitHub HTML File Viewer</h2>
+        <input type="text" id="urlInput" placeholder="Enter GitHub raw HTML URL">
+        <button onclick="loadFile()">Load</button>
+    </header>
+    <iframe id="viewer" src=""></iframe>
+
+    <script>
+        function loadFile() {
+            const url = document.getElementById('urlInput').value.trim();
+            if (!url.startsWith("https://raw.githubusercontent.com/")) {
+                alert("Please enter a valid GitHub raw file URL.");
+                return;
+            }
+            document.getElementById('viewer').src = url;
+        }
+    </script>
+</body>
+</html>
